@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+{% load static%}
+<html>
+	<head>
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8">
+		<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>{% block title %}Главная{% endblock %}</title>
+		{% bootstrap_css %}
+		{% bootstrap_javascript jquery='slim' %}
+	</head>
+	<body class="container-fluid">
+		<header class="mb-4">
+			<h1 class="display-1 text-center">Авторизация вконтакте</h1>
+		</header>
+		<section class="col py-2 transparent">
+				{% bootstrap_messages %}
+				{% block content %}
+				{% endblock %}
+			</section>
+		</div>
+		<footer class="mt-3">
+			<p class="text-right font-italic">&copy; Четкий дипломчик.</p>
+			<a href="{% url 'admin:login' %}" target="_blank">Административный сайт</a>
+		</footer>
+	</body>
+</html>
