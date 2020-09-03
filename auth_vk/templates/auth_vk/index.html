@@ -3,11 +3,19 @@
 {% load account socialaccount %}
 
 {% block content%}
-<h2>Страница авторизации</h2>
-{{ a }}
+
 {% if user.is_authenticated %}
-{% user_display user %}
+<h2 class="text-center">{% user_display user %}</h2>
+
+{% for friend in friends %}
+<div class="border"><a href="https://vk.com/{{ friend.domain }}" target="_blank">
+        <img src="{{ friend.photo_100 }}">
+        {{ friend.first_name }} {{ friend.last_name }}
+    </a></div>
+{% endfor %}
+
 {% else %}
-<a class="btn btn-primary" href="{% provider_login_url "vk" %}">Авторизоваться</a>
+<p class="text-center"><a class="btn btn-primary" href="{% provider_login_url "vk" %}">Авторизоваться</a></p>
 {% endif %}
+
 {% endblock %}

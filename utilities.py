@@ -5,12 +5,12 @@ from allauth.socialaccount.models import SocialAccount
 access_token = confidential_data.key()
 
 
-def get_user_id(friends_data):
-    return SocialAccount.objects.get(user=friends_data).extra_data['id']
+def get_user_id(data):
+    return SocialAccount.objects.get(user=data).extra_data['id']
 
 
-def friends(request_data):
-    user_id = get_user_id(request_data)
+def friends(data):
+    user_id = get_user_id(data)
     response = requests.get(
         'https://api.vk.com/method/friends.get',
         params={
@@ -19,8 +19,8 @@ def friends(request_data):
             'user_id': user_id,
             'lang': 0,
             'order': 'random',
-            'fields': 'nickname',
+            'fields': 'domain, photo_100',
             'count': 5,
         }
     )
-    return response.json()
+    return response.json()['response']['items']
