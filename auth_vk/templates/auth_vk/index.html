@@ -4,6 +4,7 @@
 
 {% block content%}
 <h2>Страница авторизации</h2>
+{{ a }}
 {% if user.is_authenticated %}
 {% user_display user %}
 {% else %}
