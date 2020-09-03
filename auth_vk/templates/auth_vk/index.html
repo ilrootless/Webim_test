@@ -5,6 +5,7 @@
 {% block content%}
 
 {% if user.is_authenticated %}
+<a href="{% url 'auth_vk:logout' %}">Выйти</a>
 <h2 class="text-center">{% user_display user %}</h2>
 
 {% for friend in friends %}

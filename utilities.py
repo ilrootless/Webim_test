@@ -4,11 +4,11 @@ from allauth.socialaccount.models import SocialAccount
 
 access_token = confidential_data.key()
 
-
+# Получение id пользователя
 def get_user_id(data):
     return SocialAccount.objects.get(user=data).extra_data['id']
 
-
+# Получение списка друзей
 def friends(data):
     user_id = get_user_id(data)
     response = requests.get(
