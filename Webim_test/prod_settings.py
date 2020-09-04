@@ -15,7 +15,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Webim_test.data',
-        'USER': 'postgres',
+        'USER': 'ilrootless',
         'PASSWORD': confidential_data.pgsql_pass(),
         'HOST': 'localhost',
         'PORT': '5432',
