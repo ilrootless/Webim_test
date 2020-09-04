@@ -14,7 +14,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'auth_vk',
+        'NAME': 'Webim_test.data',
         'USER': 'postgres',
         'PASSWORD': confidential_data.pgsql_pass(),
         'HOST': 'localhost',
